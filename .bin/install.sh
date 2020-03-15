@@ -6,19 +6,17 @@ function config {
 
 if [ ! -d ~/.dotfiles ]; then
     echo "Cloning config..."
-    git clone --bare git@github.com:jpnurmi/dotfiles.git ~/.dotfiles > /dev/null
-
-    if [ $? != 0 ]; then
-        if [ ! -f ~/.ssh/id_rsa ]; then
-            ssh-keygen -q -t rsa -f ~/.ssh/id_rsa -N ""
-        fi
-        echo "Upload SSH key:"
-        cat ~/.ssh/id_rsa.pub
-        exit
-    fi
+    git clone --bare git://github.com/jpnurmi/dotfiles.git ~/.dotfiles > /dev/null
+    git -C ~/.dotfiles remote set-url origin git@github.com:jpnurmi/dotfiles.git
 else
     echo "Updating config..."
     config fetch > /dev/null 2>&1
+fi
+
+if [ ! -f ~/.ssh/id_rsa ]; then
+    ssh-keygen -q -t rsa -f ~/.ssh/id_rsa -N ""
+    echo "NOTE: upload SSH key:"
+    cat ~/.ssh/id_rsa.pub
 fi
 
 echo "Checking out config..."
