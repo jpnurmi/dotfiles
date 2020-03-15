@@ -1,12 +1,14 @@
 #!/bin/bash
 
 if [ $# == 0 ]; then
-    echo -e "Setup: $(find ~/.setup -name '*.sh' | xargs -L1 -I{} basename '{}' .sh | sort | paste -sd ' ')"
+    echo -e "Setup: $(find ~/.setup ~/.private -name '*.sh' | xargs -L1 -I{} basename '{}' .sh | sort | paste -sd ' ')"
 else
-    sh=~/.setup/${1}.sh
-    if [ ! -f "$sh" ]; then
-        echo "ERROR: cannot find $sh"
+    if [ -f ~/.setup/${1}.sh ]; then
+        . ~/.setup/${1}.sh
+    elif [ -f ~/.private/${1}.sh ]; then
+        . ~/.private/${1}.sh
+    else
+        echo "ERROR: cannot find ${1}.sh"
         exit 1
     fi
-    . $sh
 fi
