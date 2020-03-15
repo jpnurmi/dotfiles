@@ -1,4 +1,5 @@
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias setup='/bin/bash ~/.bin/setup.sh'
 
 alias geach='git submodule foreach'
 alias gpull='git submodule foreach git pull'

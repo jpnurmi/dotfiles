@@ -3,10 +3,11 @@ export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$(git
 
 ### Projects
 if [ "$OSTYPE" == "linux-gnu" ] || [ "$OSTYPE" == "darwin" ]; then
-    export CDPATH=~/Projects
+    export PROJECT_DIR=~/Projects
 else
-    export CDPATH=/C/Projects
+    export PROJECT_DIR=/C/Projects
 fi
+export CDPATH=$PROJECT_DIR
 
 ### Qt
 export QT5_MODULES="qtbase,qtxmlpatterns,qtdeclarative,qtquickcontrols2,qtgraphicaleffects,qtimageformats,qttools,qtdoc,qtquickcontrols,qt3d,qtserialport"
