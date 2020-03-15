@@ -1,0 +1,7 @@
+[
+    { "key": "ctrl+k",                "command": "workbench.action.quickOpen" },
+    { "key": "ctrl+pagedown",         "command": "workbench.action.terminal.focusNext",
+                                         "when": "terminalFocus" },
+    { "key": "ctrl+pageup",           "command": "workbench.action.terminal.focusPrevious",
+                                         "when": "terminalFocus" }
+]

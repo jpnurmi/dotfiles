@@ -1,0 +1,33 @@
+{
+    "editor.renderWhitespace": "all",
+
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/.obj": true,
+        "**/.rcc": true,
+        "**/.pch": true,
+        "**/debug": true,
+        "**/release": true,
+        "**/*.obj": true,
+        "**/*.exe": true,
+        "**/*_wrapper.sh": true,
+        "**/*_wrapper.bat": true,
+        "**/*.ilk": true,
+        "**/*.pdb": true,
+        "**/*.rc": true,
+        "**/*.moc": true,
+        "**/moc_*.cpp": true,
+        "**/qrc_*.cpp": true,
+        "**/Makefile": true,
+        "**/Makefile.*": true
+    },
+
+    "files.associations": {
+        "*.qrc": "xml"
+    },
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false
+}
