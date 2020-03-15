@@ -1,0 +1,31 @@
+[user]
+	name = J-P Nurmi
+	email = jpnurmi@gmail.com
+[status]
+	showuntrackedfiles = all
+[push]
+	default = tracking
+[rerere]
+	enabled = true
+	autoupdate = true
+[rebase]
+	stat = true
+[color]
+	ui = auto
+[core]
+	pager = less -FRSX
+	autocrlf = input
+	editor = nano
+[commit]
+	template = /home/jpnurmi/.git-commit-template
+[fetch]
+	prune = true
+[url "git@github.com:"]
+	insteadof = git://github.com/
+	insteadof = http://github.com/
+	insteadof = https://github.com/
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
