@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/jpnurmi/Qt/latest/gcc_64/bin/assistant
+Name=Qt 5 Assistant
+GenericName=Document Browser
+Icon=qt-assistant
+StartupWMClass=qtassistant
+Terminal=false
+Categories=Qt;Development;Documentation;
+MimeType=application/x-qt-assistant;

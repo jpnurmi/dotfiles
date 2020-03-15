@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/jpnurmi/Qt/latest/gcc_64/bin/pixeltool
+Name=Qt Pixel Tool
+GenericName=Inspect pixels
+Icon=qt-logo
+Terminal=false
+Categories=Development;Qt;
