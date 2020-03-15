@@ -1,0 +1,36 @@
+### Prompt
+export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$(git branch 2>/dev/null | grep -e '\* ' | sed 's/^..\(.*\)/ (\[\033[01;35m\]\1\[\033[00m\])/')\$ "
+
+### Projects
+if [ "$OSTYPE" == "linux-gnu" ] || [ "$OSTYPE" == "darwin" ]; then
+    export CDPATH=~/Projects
+else
+    export CDPATH=/C/Projects
+fi
+
+### Qt
+export QT5_MODULES="qtbase,qtxmlpatterns,qtdeclarative,qtquickcontrols2,qtgraphicaleffects,qtimageformats,qttools,qtdoc,qtquickcontrols,qt3d,qtserialport"
+export QT5_INIT="--codereview-username jpnurmi --module-subset=$QT5_MODULES"
+export QT5_CONFIG="-developer-build -prefix ./qtbase -opensource -confirm-license"
+export QT5_NOMAKE="-nomake examples -nomake tests -skip qttools -skip qtquickcontrols"
+export QT5_IOS="-xplatform macx-ios-clang"
+export QT5_ANDROID="-no-android-style-assets -xplatform android-g++ -android-ndk $HOME/Android/ndk -android-sdk $HOME/Android/sdk -android-toolchain-version 4.9 -android-ndk-host $(uname -s | tr '[:upper:]' '[:lower:]')-$(uname -m)"
+
+export QTEST_DISABLE_STACK_DUMP=1
+export TESTARGS="-maxwarnings 0"
+[ "$OSTYPE" == "linux-gnu" ] && export TESTRUNNER=xvfb-run
+
+### Java
+if [ -f /usr/libexec/java_home ]; then
+    export JAVA_HOME=$(/usr/libexec/java_home)
+elif [ -d /usr/lib/jvm ]; then
+    export JAVA_HOME=/usr/lib/jvm/default-java
+fi
+
+### Android
+if [ -d $HOME/Android ]; then
+    export ANDROID_API_VERSION=android-28
+    export ANDROID_SDK_ROOT=$HOME/Android/sdk
+    export ANDROID_NDK_ROOT=$HOME/Android/ndk
+    export PATH=$HOME/Android/sdk/tools:$PATH
+fi

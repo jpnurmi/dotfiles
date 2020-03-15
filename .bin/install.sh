@@ -37,4 +37,12 @@ if [ $? != 0 ]; then
     config checkout > /dev/null 2>&1
 fi
 
+echo "Setting up config..."
 config config status.showUntrackedFiles no
+function bashrc_source {
+    if [ ! -f ~/.bashrc ] || ! grep -Fxq "source ~/$1" ~/.bashrc; then
+        echo "source ~/$1" >> ~/.bashrc
+    fi
+}
+bashrc_source ".bash_functions"
+bashrc_source ".bash_variables"
