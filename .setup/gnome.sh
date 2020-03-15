@@ -6,19 +6,24 @@ BGDIR="$HOME/.local/share/backgrounds"
 BGURI="file://$BGDIR/earth-timed/earth-timed.xml"
 
 if [ ! -d "$BGDIR/earth-timed" ]; then
+    mkdir -p $BGDIR
     git -C $BGDIR clone git://github.com/jpnurmi/earth-timed.git
 fi
 
 gsettings set org.gnome.desktop.background picture-uri "$BGURI"
 gsettings set org.gnome.desktop.screensaver picture-uri "$BGURI"
 
-git -C /tmp clone --depth 1 https://github.com/nana-4/materia-theme
-/tmp/materia-theme/install.sh --dest ~/.local/share/themes
-rm -rf /tmp/materia-theme
+if [ ! -d ~/.local/share/themes/Materia ]; then
+    git -C /tmp clone --depth 1 https://github.com/nana-4/materia-theme
+    /tmp/materia-theme/install.sh --dest ~/.local/share/themes
+    rm -rf /tmp/materia-theme
+fi
 
-org.gnome.desktop.interface gtk-theme 'Materia-light-compact'
-org.gnome.desktop.interface icon-theme 'Adwaita-Blue-Folders'
-org.gnome.shell.extensions.user-theme name 'Materia-dark-compact'
+gnome-shell-extension-tool -e user-theme
+
+gsettings set org.gnome.desktop.interface gtk-theme 'Materia-light-compact'
+gsettings set org.gnome.desktop.interface icon-theme 'Adwaita-Blue-Folders'
+gsettings set org.gnome.shell.extensions.user-theme name 'Materia-dark-compact'
 gsettings set org.gnome.desktop.interface clock-show-seconds true
 gsettings set org.gnome.desktop.interface clock-show-date true
 gsettings set org.gnome.desktop.interface clock-show-weekday true
