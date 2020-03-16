@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if ! git lfs install; then
+    echo "Install Git LFS"
+    exit 1
+fi
+
 function config {
     /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
 }
@@ -44,3 +49,5 @@ function bashrc_source {
 }
 bashrc_source ".bash_functions"
 bashrc_source ".bash_variables"
+
+. setup.sh
