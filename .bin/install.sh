@@ -50,4 +50,4 @@ function bashrc_source {
 bashrc_source ".bash_functions"
 bashrc_source ".bash_variables"
 
-. setup.sh
+. ~/.bin/setup.sh
