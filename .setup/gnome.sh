@@ -34,3 +34,19 @@ gsettings set org.gnome.shell disable-user-extensions false
 gsettings set org.gnome.shell favorite-apps "['org.gnome.Evolution.desktop', 'chromium.desktop', 'communi.desktop', 'assistant.desktop', 'org.qt-project.qtcreator.desktop', 'code.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop']"
 
 gsettings set org.gnome.Terminal.Legacy.Settings theme-variant 'dark'
+
+EXTENSIONS="\
+    appfolders-manager@maestroschan.fr \
+    apt-update-indicator@franglais125.gmail.com \
+    auto-move-windows@gnome-shell-extensions.gcampax.github.com \
+    clipboard-indicator@tudmotu.com \
+    cpupower@mko-sl.de \
+    drive-menu@gnome-shell-extensions.gcampax.github.com \
+    horizontal-workspaces@gnome-shell-extensions.gcampax.github.com \
+    openweather-extension@jenslody.de \
+    remove-dropdown-arrows@mpdeimos.com \
+    ShellTile@emasab.it \
+"
+for ext in $EXTENSIONS; do
+    gnome-extensions install $ext
+done
