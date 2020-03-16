@@ -2,12 +2,13 @@
 
 echo "Setting up Gnome..."
 
-BGDIR="$HOME/.local/share/backgrounds"
-BGURI="file://$BGDIR/earth-timed/earth-timed.xml"
+BGDIR="/usr/share/backgrounds/gnome"
+BGURI="file://$BGDIR/earth-timed.xml"
 
-if [ ! -d "$BGDIR/earth-timed" ]; then
-    mkdir -p $BGDIR
-    git -C $BGDIR clone git://github.com/jpnurmi/earth-timed.git
+if [ ! -d "$BGDIR/earth" ]; then
+    git -C /tmp clone --depth 1 git://github.com/jpnurmi/earth-timed.git
+    sudo cp -r /tmp/earth-timed/earth* /usr/share/backgrounds/gnome
+    rm -rf /tmp/earth-timed
 fi
 
 gsettings set org.gnome.desktop.background picture-uri "$BGURI"
