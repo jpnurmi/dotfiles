@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ ! -z "$PROJECT_DIR" ] && [ ! -d "$PROJECT_DIR" ]; then
+    mkdir $PROJECT_DIR
+fi
+
 if [ $# == 0 ]; then
     echo -e "Setup: $(find ~/.setup ~/.private -name '*.sh' | xargs -L1 -I{} basename '{}' .sh | sort | paste -sd ' ')"
 else
