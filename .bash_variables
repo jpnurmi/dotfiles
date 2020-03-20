@@ -7,7 +7,7 @@ if [ "$OSTYPE" == "linux-gnu" ] || [ "$OSTYPE" == "darwin" ]; then
 else
     export PROJECT_DIR=/C/Projects
 fi
-export CDPATH=$PROJECT_DIR
+#export CDPATH=$PROJECT_DIR
 
 ### Qt
 export QT5_MODULES="qtbase,qtxmlpatterns,qtdeclarative,qtquickcontrols2,qtgraphicaleffects,qtimageformats,qttools,qtdoc,qtquickcontrols,qt3d,qtserialport"
